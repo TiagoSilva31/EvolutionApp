@@ -5,9 +5,13 @@ const {
     updateUser,
     removeUser,
 } = require("../repositories/user")
+const bcrypt = require("bcrypt")
+const { userValidation } = require("../validation/user")
 
 exports.create = async (req, res) => {
     try {
+        const data = await userValidation.parse(req.body)
+        req.body.password = bcrypt.hashSync(req.body.password, 10)
         const user = await createUser(req.body)
         res.status(200).send(user)
     } catch (error) {

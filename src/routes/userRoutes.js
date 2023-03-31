@@ -7,4 +7,3 @@ exports.userRoutes = app => {
     app.put("/user/:id", update)
     app.delete("/user/:id", remove)
 }
-// aula 05 8 min
