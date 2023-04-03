@@ -6,7 +6,7 @@ const {
     removeUser,
 } = require("../repositories/user")
 const bcrypt = require("bcrypt")
-const { userValidation } = require("../validation/user")
+const { userValidation } = require("../validation/userValidation")
 
 exports.create = async (req, res) => {
     try {
